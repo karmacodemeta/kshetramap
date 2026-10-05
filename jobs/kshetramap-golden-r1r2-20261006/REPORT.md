@@ -109,9 +109,8 @@ Live curl (existing process on :3001, not started or killed by this job): ping 2
 
 ## Commit
 
-`feat/kshetramap-golden-r1r2-20261006` — `feat: add KC ping and signed health stubs (R1/R2)`  
-Parent: `09d4e01 feat(cv): add second dummy candidate (Rameshwar Prasad) and map link to Anant CV`.  
-Current HEAD after this job: run `git log -1 --oneline` on that branch (not pushed).
+`ea08478d2244be9885cd7b3660cc357087e58e40` on `feat/kshetramap-golden-r1r2-20261006`  
+(`feat: add KC ping and signed health stubs (R1/R2)`; parent `09d4e01`).
 
 **Push: false.** Do not force-push.
 
