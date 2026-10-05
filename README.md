@@ -6,6 +6,8 @@ This folder is the website. Roll PDFs, OCR dumps, and `public/booth_assets` stay
 
 See `HANDOFF.md` for product status. Parent pipeline (Python, 342 PDFs) lives in `D:\KarmaCode\KshetraMap\` and is not this git repo.
 
+KCS contract stubs: `GET /api/kc/ping` (public, rate-limited) and signed `GET /api/kc/health` (`x-kc-admin-signature` vs env key name `KC_HEALTH_SECRET`). See `RUNBOOK.md`. `npm test` runs vitest.
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started

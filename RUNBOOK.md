@@ -75,3 +75,19 @@ cd web
 npm test              # vitest — pure-function unit tests
 npx tsc --noEmit       # strict TypeScript check
 ```
+
+## KCS ping / health (Golden Rule R1 + R2)
+
+Public ping (no data, in-memory IP rate limit 20 / 60s):
+
+```powershell
+curl.exe -sS http://localhost:3001/api/kc/ping
+```
+
+Signed health. Put `KC_HEALTH_SECRET` in `.env.local` (value never belongs in this file). Header is `x-kc-admin-signature`. Restart the dev server after adding the key.
+
+```powershell
+curl.exe -sS http://localhost:3001/api/kc/health -H "x-kc-admin-signature: <KC_HEALTH_SECRET value>"
+```
+
+Missing or wrong header → HTTP 401. Backup age in the payload is `"unknown"` until Rule 9.
