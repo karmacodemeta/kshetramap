@@ -1,8 +1,18 @@
 export const ANANT_CANDIDATE_ID = "demo-mokama-anant-kumar-singh";
-export const ANANT_CANDIDATE_CV_HREF = `/app/candidates/${ANANT_CANDIDATE_ID}`;
+/** Public showcase path (static Pages + local). Auth/owner edit stays under /app/candidates/... */
+export const ANANT_CANDIDATE_CV_HREF = `/candidates/${ANANT_CANDIDATE_ID}`;
+/** Authenticated app route (owner edit chrome); parked on GITHUB_PAGES static export. */
+export const ANANT_CANDIDATE_CV_APP_HREF = `/app/candidates/${ANANT_CANDIDATE_ID}`;
 
 export const RAMESHWAR_CANDIDATE_ID = "demo-mokama-rameshwar-prasad";
-export const RAMESHWAR_CANDIDATE_CV_HREF = `/app/candidates/${RAMESHWAR_CANDIDATE_ID}`;
+export const RAMESHWAR_CANDIDATE_CV_HREF = `/candidates/${RAMESHWAR_CANDIDATE_ID}`;
+export const RAMESHWAR_CANDIDATE_CV_APP_HREF = `/app/candidates/${RAMESHWAR_CANDIDATE_ID}`;
+
+/** Demo IDs baked into static export via generateStaticParams. */
+export const DEMO_CANDIDATE_CV_IDS = [
+  ANANT_CANDIDATE_ID,
+  RAMESHWAR_CANDIDATE_ID,
+] as const;
 
 /**
  * Detects whether a candidate represents Anant Kumar Singh in AC-178 Mokama.
@@ -27,7 +37,7 @@ export function isAnantCandidate(
 }
 
 /**
- * Returns candidate CV URL if candidate is recognized, or null otherwise.
+ * Returns public candidate CV URL if candidate is recognized, or null otherwise.
  */
 export function getCandidateCvHref(
   key?: string | null,

@@ -243,3 +243,46 @@ export async function updateCandidateCv(
   await saveCandidateCv(updated);
   return toPlainCandidateCv(updated);
 }
+
+/**
+ * Fixture-only Candidate CV load for static export / public showcase.
+ * Never touches Mongo — safe at `next build` with GITHUB_PAGES=1.
+ */
+export async function getCandidateCvFromFixture(
+  id: string
+): Promise<CandidateCvDoc | null> {
+  const candidatePaths = [
+    DEMO_FIXTURE_MAP[id],
+    path.join(
+      FIXTURES_DIR,
+      `candidate-cv-mokama-${id.replace(/^demo-mokama-/, "")}.json`
+    ),
+    path.join(FIXTURES_DIR, `candidate-cv-${id}.json`),
+  ].filter(Boolean) as string[];
+
+  for (const filePath of candidatePaths) {
+    try {
+      const raw = await readFile(filePath, "utf-8");
+      const parsed = JSON.parse(raw) as CandidateCvDoc;
+      if (
+        parsed.candidate?.id === id ||
+        (id === "demo-mokama-anant-kumar-singh" && parsed.candidate?.id)
+      ) {
+        return toPlainCandidateCv(parsed);
+      }
+    } catch {
+      // try next path
+    }
+  }
+
+  if (id === "demo-mokama-anant-kumar-singh") {
+    try {
+      const raw = await readFile(FIXTURE_PATH, "utf-8");
+      return toPlainCandidateCv(JSON.parse(raw) as CandidateCvDoc);
+    } catch {
+      return null;
+    }
+  }
+
+  return null;
+}

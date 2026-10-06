@@ -269,3 +269,28 @@ KshetraMap/
 - Agency-client A/B layout still unlocked (draft `bz/09`)
 - Golden Rule: KshetraMap still gaps per GOLDEN-RULE table (not this push's job to implement)
 
+---
+
+## Meta Pages Candidate CV showcase (DONE) — 2026-10-07 IST
+
+**Approach:** (1) Next static export — public `/candidates/[id]` fixture pages (not HTML stubs).
+
+### Pages URLs
+- Anant: https://karmacodemeta.github.io/kshetramap/candidates/demo-mokama-anant-kumar-singh/
+- Rameshwar: https://karmacodemeta.github.io/kshetramap/candidates/demo-mokama-rameshwar-prasad/
+- Map: https://karmacodemeta.github.io/kshetramap/ac/178/
+
+### How to click (Pages)
+1. Open `/ac/178/`
+2. Select a booth where Anant won (or any booth showing Anant in results)
+3. Click the **Anant Kumar Singh** name link → public Candidate CV
+4. Rameshwar: open his Pages URL directly (dashboard-only on full app; no map name-click)
+
+### Full local app
+- Public (no login): `/candidates/demo-mokama-anant-kumar-singh` and `/candidates/demo-mokama-rameshwar-prasad`
+- Auth/owner: `/app/candidates/...` after login; Dashboard links both dummies
+- Fixtures: `data/demo/candidate-cv-mokama-*.json`
+
+### Build / deploy
+- `npm run build:static` then `npm run deploy:gh` (Meta `gh-pages`)
+- `gh-pages` tip at cut: `ee188da` — see `REPORT-PAGES-CV-SHOWCASE-20261007.md`

@@ -1,4 +1,4 @@
-﻿# KshetraMap hosting
+# KshetraMap hosting
 
 **Canonical product SoT (disk):** `D:\KarmaCodeMeta\master\client-websites\KshetraMap`  
 **Canonical remote:** https://github.com/karmacodemeta/kshetramap (origin only)  
@@ -26,3 +26,14 @@
 
 - Worktree `D:\KarmaCodeMeta\master\wt\cv-showcase` still present @ `806156f` (ancestor of Meta `main`) — do not delete until confirmed redundant.
 - Untracked local junk in SoT: `dev-3001.log`, `run-3001.cmd`, `jobs/.../BRIEF.md` etc. (not pushed).
+
+## 2026-10-07 Candidate CV on Pages
+
+- Public demo CVs export at `/candidates/[id]/` (fixtures only). `src/app/app` (auth dashboard + owner CV) stays parked for static builds.
+- `npm run build:static` → parks server trees, soft-clears `.next`, runs `npx next build --webpack` with `GITHUB_PAGES=1`, restores parks.
+- Fonts: root layout uses Google Fonts CSS `<link>` (not `next/font/google`) so static export succeeds on this PC.
+- `npm run deploy:gh` publishes `out/` to Meta `gh-pages` (`karmacodemeta/kshetramap`).
+- Live showcase:
+  - https://karmacodemeta.github.io/kshetramap/candidates/demo-mokama-anant-kumar-singh/
+  - https://karmacodemeta.github.io/kshetramap/candidates/demo-mokama-rameshwar-prasad/
+- Map Anant name-click → public `/candidates/...` path (see `candidateLink.ts`).

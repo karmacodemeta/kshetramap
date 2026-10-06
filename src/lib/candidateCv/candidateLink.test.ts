@@ -4,8 +4,11 @@ import {
   getCandidateCvHref,
   ANANT_CANDIDATE_ID,
   ANANT_CANDIDATE_CV_HREF,
+  ANANT_CANDIDATE_CV_APP_HREF,
   RAMESHWAR_CANDIDATE_ID,
   RAMESHWAR_CANDIDATE_CV_HREF,
+  RAMESHWAR_CANDIDATE_CV_APP_HREF,
+  DEMO_CANDIDATE_CV_IDS,
 } from "./candidateLink";
 
 describe("candidateLink", () => {
@@ -37,12 +40,12 @@ describe("candidateLink", () => {
   });
 
   describe("getCandidateCvHref", () => {
-    it("resolves Anant CV route", () => {
+    it("resolves Anant CV route to public /candidates path", () => {
       expect(getCandidateCvHref("anant_kumar_singh", "Anant Kumar Singh")).toBe(
-        "/app/candidates/demo-mokama-anant-kumar-singh"
+        "/candidates/demo-mokama-anant-kumar-singh"
       );
       expect(getCandidateCvHref(null, "अनंत कुमार सिंह")).toBe(
-        "/app/candidates/demo-mokama-anant-kumar-singh"
+        "/candidates/demo-mokama-anant-kumar-singh"
       );
     });
 
@@ -55,12 +58,22 @@ describe("candidateLink", () => {
     it("exports valid IDs and URLs for both demo fixtures", () => {
       expect(ANANT_CANDIDATE_ID).toBe("demo-mokama-anant-kumar-singh");
       expect(ANANT_CANDIDATE_CV_HREF).toBe(
+        "/candidates/demo-mokama-anant-kumar-singh"
+      );
+      expect(ANANT_CANDIDATE_CV_APP_HREF).toBe(
         "/app/candidates/demo-mokama-anant-kumar-singh"
       );
       expect(RAMESHWAR_CANDIDATE_ID).toBe("demo-mokama-rameshwar-prasad");
       expect(RAMESHWAR_CANDIDATE_CV_HREF).toBe(
+        "/candidates/demo-mokama-rameshwar-prasad"
+      );
+      expect(RAMESHWAR_CANDIDATE_CV_APP_HREF).toBe(
         "/app/candidates/demo-mokama-rameshwar-prasad"
       );
+      expect([...DEMO_CANDIDATE_CV_IDS]).toEqual([
+        "demo-mokama-anant-kumar-singh",
+        "demo-mokama-rameshwar-prasad",
+      ]);
     });
   });
 });

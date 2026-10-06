@@ -8,6 +8,12 @@
   --foreground: #171717;
   color-scheme: light;
 
+  /* Font stacks (replaces next/font/google CSS variables for static + local) */
+  --font-geist-sans: "Noto Sans", system-ui, sans-serif;
+  --font-geist-mono: ui-monospace, "Cascadia Code", "Segoe UI Mono", monospace;
+  --font-noto-sans: "Noto Sans", system-ui, sans-serif;
+  --font-noto-deva: "Noto Sans Devanagari", "Noto Sans", system-ui, sans-serif;
+
   /* Candidate CV Design Tokens (TOKENS.md) */
   --km-ink: #0B1220;
   --km-ink-elevated: #121A2B;
@@ -95,6 +101,12 @@ body {
 /* Avoid flash: optional inline script sets class before paint; until then light */
 html:not(.dark):not(.light) {
   color-scheme: light;
+
+  /* Font stacks (replaces next/font/google CSS variables for static + local) */
+  --font-geist-sans: "Noto Sans", system-ui, sans-serif;
+  --font-geist-mono: ui-monospace, "Cascadia Code", "Segoe UI Mono", monospace;
+  --font-noto-sans: "Noto Sans", system-ui, sans-serif;
+  --font-noto-deva: "Noto Sans Devanagari", "Noto Sans", system-ui, sans-serif;
 }
 
 /* —— Hindi: keep Devanagari conjuncts intact ——
