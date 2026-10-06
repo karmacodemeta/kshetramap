@@ -1,5 +1,8 @@
+"use client";
+
 import React from "react";
 import { EvidenceBadge } from "./EvidenceBadge";
+import { LanguageSwitch } from "../LanguageSwitch";
 import type { CandidateCvCandidate, CandidateCvMeta } from "@/lib/candidateCv/types";
 
 interface IdentityStripProps {
@@ -144,6 +147,7 @@ export function IdentityStrip({
 
         {/* Right: Actions (View Switcher + Owner edit controls + PDF/Print affordance) */}
         <div className="flex items-center gap-2.5 shrink-0 ml-auto md:ml-0">
+          <LanguageSwitch />
           {/* Chrome View Toggle: Rally Overview | Gazette */}
           <div
             className="flex items-center rounded-md border border-[rgba(244,239,230,0.2)] bg-[var(--km-navy)] p-0.5"

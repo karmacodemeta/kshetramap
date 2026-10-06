@@ -65,7 +65,7 @@ describe("BoothPopup", () => {
     );
 
     // Verify link to Anant CV exists
-    expect(html).toContain('href="/app/candidates/demo-mokama-anant-kumar-singh"');
+    expect(html).toContain('href="/candidates/demo-mokama-anant-kumar-singh"');
     // Verify Anant Kumar Singh text is present inside the link
     expect(html).toContain("Anant Kumar Singh");
   });

@@ -36,4 +36,5 @@
 - Live showcase:
   - https://karmacodemeta.github.io/kshetramap/candidates/demo-mokama-anant-kumar-singh/
   - https://karmacodemeta.github.io/kshetramap/candidates/demo-mokama-rameshwar-prasad/
+- LanguageSwitch (EN/हिं) mounted on Candidate CV masthead (`IdentityStrip`); home/map unchanged.
 - Map Anant name-click → public `/candidates/...` path (see `candidateLink.ts`).

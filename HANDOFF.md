@@ -294,3 +294,27 @@ KshetraMap/
 ### Build / deploy
 - `npm run build:static` then `npm run deploy:gh` (Meta `gh-pages`)
 - `gh-pages` tip at cut: `ee188da` — see `REPORT-PAGES-CV-SHOWCASE-20261007.md`
+---
+
+## LanguageSwitch on public Candidate CV (DONE) — 2026-10-07 03.24 IST
+
+**Gap:** Home (HomePageClient) + Map (AcWorkspaceNav) already had EN/हिं; public /candidates/[id] never mounted LanguageSwitch after map name-click.
+
+**Fix:** Mount `<LanguageSwitch />` in `IdentityStrip` right chrome (before Overview|Gazette). Shared by public `/candidates/[id]` and auth `/app/candidates/[id]` via `CandidateCvClient`.
+
+**Also:** Stale `BoothPopup.test.tsx` expected `/app/candidates/...`; aligned to public `/candidates/...` (post Pages cutover).
+
+**i18n leftover:** CV body copy still EN-only (hardcoded). Only switch chrome for parity; wire `@/lib/i18n` CV strings in a later pass.
+
+### Build / deploy
+- `npm test`: 133 passed
+- `npm run build:static` + `npm run deploy:gh` → Meta `gh-pages` `8399cef`
+- Live CV chunk includes `setLocale` / `lang.label`; shared chunk has `hi:"हिं"` + `kshetramap-lang`
+
+### Pages URLs (200)
+- Anant: https://karmacodemeta.github.io/kshetramap/candidates/demo-mokama-anant-kumar-singh/
+- Rameshwar: https://karmacodemeta.github.io/kshetramap/candidates/demo-mokama-rameshwar-prasad/
+- Map: https://karmacodemeta.github.io/kshetramap/ac/178/
+- Home: https://karmacodemeta.github.io/kshetramap/
+
+See `REPORT-CV-LANGUAGE-SWITCH-20261007.md`.
