@@ -227,3 +227,45 @@ KshetraMap/
 6. Grey pins on historical years = unmatched join, not zero votes. Soft colours on 2015 = low-confidence serial.  
 7. Bihar scale: every AC gets a logged, pin-safe pipeline run.  
 8. **PS list** (2025 OCR + CSV): `data/ps_lists/`.  
+
+---
+
+## Meta SoT + Pages cutover (DONE) — 2026-10-07 IST
+
+**Status:** Cutover complete on disk + Meta remotes. This section is append-only truth for Hemraj / agents; do not rewrite older sections above.
+
+### Canonical SoT
+- **Disk SoT:** `D:\KarmaCodeMeta\master\client-websites\KshetraMap`
+- **origin only:** https://github.com/karmacodemeta/kshetramap.git @ `fed0d30` (includes CV tip `806156f` + golden R1/R2 lineage via `0aea21d` merge)
+- **Nested submodule** under `karmacodemeta/client-websites` → `karmacodemeta/master` (push order: **client → client-websites → master**)
+
+### Live Pages
+- **Meta Pages LIVE:** https://karmacodemeta.github.io/kshetramap/ — HTTP **200** (`/ac/178/` also 200)
+- **H3MRAJ Pages retired:** https://h3mraj.github.io/kshetramap/ — HTTP **404**; H3MRAJ README points to Meta; repo kept (history)
+- **Pages content:** static mirror of prior H3MRAJ `gh-pages` `b072277` (local `build:static` failed Turbopack / `next/font/google` on this PC)
+
+### CRITICAL — Candidate CV is NOT on static Pages
+- Static Pages do **not** include Candidate CV. `GITHUB_PAGES` parks `app` / `api` (and related server trees); CV lives under those trees.
+- Verified 2026-10-07: Meta Pages `/app/`, `/api/`, and `/app/candidates/demo-mokama-anant-kumar-singh` → **404**
+- **Name-click → CV works only in the FULL local Next + Mongo app**, not on Pages.
+
+### Click path (full local app only)
+- Map: `/ac/178` (Mokama)
+- Click **candidate name** **Anant Kumar Singh** (booth popup / legend / map control panel when `isAnantCandidate`) → `/app/candidates/demo-mokama-anant-kumar-singh`
+- Wiring: `src/lib/candidateCv/candidateLink.ts` (`ANANT_CANDIDATE_CV_HREF`); used by `BoothPopup.tsx`, `Legend.tsx`, `MapControlPanel.tsx`, `MobileBoothSheet.tsx`
+- Second dummy fixture **Rameshwar Prasad** also in `data/demo/` (`demo-mokama-rameshwar-prasad`); dashboard links both; map name-click currently resolves **Anant only**
+
+### Docs in SoT (already on main @ fed0d30)
+- `REPORT-META-PAGES-CUTOVER-20261007.md`
+- `HOSTING.md`
+
+### Leftovers / non-SoT
+- Worktree `D:\KarmaCodeMeta\master\wt\cv-showcase` @ `806156f` — await Hemraj QA before remove
+- Non-SoT junk: `D:\KarmaCode\KshetraMap` (no `.git`) — **not** SoT
+- Untracked local junk in SoT (do **not** commit): `dev-3001.log`, `run-3001.cmd`, `jobs/...` drafts/logs
+
+### Open (not this push)
+- Hemraj QA CV showcase (historical feat-branch push was false; `main` now has `806156f` lineage via cutover)
+- Agency-client A/B layout still unlocked (draft `bz/09`)
+- Golden Rule: KshetraMap still gaps per GOLDEN-RULE table (not this push's job to implement)
+
