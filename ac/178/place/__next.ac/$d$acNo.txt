@@ -1,0 +1,6 @@
+1:"$Sreact.fragment"
+2:"$Sreact.suspense"
+3:I[1028,["500","static/chunks/500-c99b8dfd3de17c86.js","335","static/chunks/335-adbfe51a68b79a10.js","876","static/chunks/876-851ca2d76206c787.js","910","static/chunks/app/ac/%5BacNo%5D/layout-af1af12be0841032.js"],"AcWorkspaceNav"]
+4:I[7121,[],""]
+5:I[4581,[],""]
+0:{"rsc":["$","$1","c",{"children":[null,["$","div",null,{"className":"flex h-dvh flex-col overflow-hidden","children":[["$","$2",null,{"fallback":["$","header",null,{"className":"shrink-0 border-b border-zinc-200 px-3 py-2 text-sm dark:border-zinc-800","children":["AC ",178," — ","Mokama"]}],"children":["$","$L3",null,{"acNo":178,"acName":"Mokama"}]}],["$","div",null,{"className":"relative min-h-0 flex-1","children":["$","$L4",null,{"parallelRouterKey":"children","template":["$","$L5",null,{}]}]}]]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"iVYxmv22t78zHktYuZOji"}
